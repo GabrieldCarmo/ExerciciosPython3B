@@ -5,7 +5,7 @@ class Produto:
         self.quantidade = quantidade
         self.preco = preco
 
-    def mostrar(self):
+    def exibir(self):
         print(f"\nCódigo: {self.codigo} \nProduto: {self.nome} \nQuantidade: {self.quantidade} \nPreço Unitário: {self.preco}")
 
 print("\nExercicio de POO")
