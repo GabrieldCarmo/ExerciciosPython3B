@@ -30,11 +30,36 @@ def cadastro():
         return
     produtos.append(Produto(nome, preco))
 
-#Listar produtos
+# Listar produtos
 
 def listar_produtos():
     for i in range(len(produtos)):
         print(f"Produto {i}: " + produtos[i].mostrar())
+
+
+# Comprar produto
+
+def comprar_produto():
+
+    try:
+        produto = produtos[int(input("Digite o número do produto que deseja comprar: "))]
+        quantidade = int(input("Digite a quantidade que deseja comprar desse produto: "))
+
+    except ValueError:
+        limpar_tela()
+        print("Digite uma quantidade válida de produtos para continuar")
+        confirmacao()
+        return
+    
+    total = produto.preco * quantidade
+
+    limpar_tela()
+    print("\n" + "=" * 50)
+    print("FINALIZANDO A COMPRA")
+    print("=" * 50)
+    print(f"O total da compra é: {total}")
+    print("=" * 50)
+    confirmacao()
 
 # Menu
 
@@ -72,11 +97,10 @@ def confirmacao():
 while True:
     limpar_tela()
     escolha = menu()
+    limpar_tela()
     if escolha == 1:
-        limpar_tela()
         cadastro()
     elif escolha == 2:
-        limpar_tela()
         print("\n" + "=" * 50)
         print("LISTA DE PRODUTOS")
         print("=" * 50)
@@ -84,9 +108,8 @@ while True:
         print("=" * 50)
         confirmacao()
     elif escolha == 3:
-        pass
+        comprar_produto()
     elif escolha == 4:
-        limpar_tela()
         print("[Sistema] Encerrando...")
         break
     else:
