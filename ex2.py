@@ -66,6 +66,8 @@ def comprar_produto():
     print("=" * 50)
     confirmacao()
 
+# Funcoes uteis
+
 # Menu
 
 def menu():
