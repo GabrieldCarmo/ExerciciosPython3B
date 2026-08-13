@@ -45,11 +45,16 @@ def comprar_produto():
         produto = produtos[int(input("Digite o número do produto que deseja comprar: "))]
         quantidade = int(input("Digite a quantidade que deseja comprar desse produto: "))
 
+    except IndexError:
+        print("\n[Sistema] Insira um número de produto válido")
+        confirmacao()
+        return
+
     except ValueError:
         limpar_tela()
         print("Digite uma quantidade válida de produtos para continuar")
         confirmacao()
-        return
+        return 
     
     total = produto.preco * quantidade
 
@@ -87,7 +92,7 @@ def limpar_tela():
 
 def confirmacao():
     while True:
-        resposta = input("\nAperte enter para prosseguir ")
+        resposta = input("\n[Sistema] Aperte enter para continuar: ")
         # Evita da pessoa digitar qualquer coisa e ainda prosseguir 
         if resposta == "":
             break
@@ -110,6 +115,7 @@ while True:
     elif escolha == 3:
         comprar_produto()
     elif escolha == 4:
+        limpar_tela()
         print("[Sistema] Encerrando...")
         break
     else:
